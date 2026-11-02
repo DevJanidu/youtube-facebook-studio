@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "background": "#000000",
+  "theme": {},
+  "default_transition": {
+    "type": "cut"
+  },
+  "intro": null,
+  "outro": null,
+  "narration_volume": 1,
+  "audio_layers": {
+    "character_sfx": {
+      "gain": 1,
+      "duck": 1
+    },
+    "environment_ambience": {
+      "gain": 0.35,
+      "duck": 0.6
+    },
+    "cinematic_sfx": {
+      "gain": 0.9,
+      "duck": 1
+    },
+    "background_music": {
+      "gain": 0.25,
+      "duck": 0.35
+    }
+  },
+  "ducking": {
+    "attack_seconds": 0.2,
+    "release_seconds": 0.5,
+    "noise_db": -35,
+    "min_silence_seconds": 0.3
+  },
+  "review": {
+    "scale": 0.5,
+    "crf": 28
+  }
+}

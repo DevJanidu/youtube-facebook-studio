@@ -1,0 +1,18 @@
+# Allowlist: only the workspace's own tools, templates and documentation are tracked.
+# Episodes, media and anything else stay out unless named here.
+# The motion graphics library and assembler have their own repository, in
+# video-production/shared/remotion-templates.
+/*
+!/.gitignore
+!/CLAUDE.md
+!/.claude/
+/.claude/*
+!/.claude/settings.json
+!/video-production/
+/video-production/*
+!/video-production/README.md
+!/video-production/WORKFLOW.md
+!/video-production/templates/
+!/video-production/tools/
+__pycache__/
+*.pyc

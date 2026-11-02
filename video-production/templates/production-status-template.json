@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "episode": {
+    "id": "",
+    "title": "",
+    "folder": "",
+    "created_at": ""
+  },
+  "allowed_statuses": [
+    "NOT_STARTED",
+    "IN_PROGRESS",
+    "NEEDS_REVIEW",
+    "COMPLETED",
+    "BLOCKED"
+  ],
+  "status_rule": "COMPLETED requires evidence: list the actual files or checks that prove it. An existing folder is not evidence.",
+  "stages": [
+    {
+      "number": 1,
+      "key": "script_and_source_files_received",
+      "name": "Script and source files received",
+      "owner": "User",
+      "status": "NOT_STARTED",
+      "evidence": [],
+      "notes": "",
+      "updated_at": null
+    },
+    {
+      "number": 2,
+      "key": "elevenlabs_audio_received",
+      "name": "ElevenLabs audio received",
+      "owner": "User",
+      "status": "NOT_STARTED",
+      "evidence": [],
+      "notes": "",
+      "updated_at": null
+    },
+    {
+      "number": 3,
+      "key": "transcript_and_subtitles_received",
+      "name": "Transcript and subtitles received",
+      "owner": "User",
+      "status": "NOT_STARTED",
+      "evidence": [],
+      "notes": "",
+      "updated_at": null
+    },
+    {
+      "number": 4,
+      "key": "audio_timing_verified",
+      "name": "Audio timing verified",
+      "owner": "Claude Code",
+      "status": "NOT_STARTED",
+      "evidence": [],
+      "notes": "",
+      "updated_at": null
+    },
+    {
+      "number": 5,
+      "key": "storyboard_generated",
+      "name": "Storyboard generated",
+      "owner": "Claude Opus",
+      "status": "NOT_STARTED",
+      "evidence": [],
+      "notes": "",
+      "updated_at": null
+    },
+    {
+      "number": 6,
+      "key": "storyboard_reviewed",
+      "name": "Storyboard reviewed",
+      "owner": "User",
+      "status": "NOT_STARTED",
+      "evidence": [],
+      "notes": "",
+      "updated_at": null
+    },
+    {
+      "number": 7,
+      "key": "google_flow_images",
+      "name": "Google Flow images",
+      "owner": "User",
+      "status": "NOT_STARTED",
+      "evidence": [],
+      "notes": "",
+      "updated_at": null
+    },
+    {
+      "number": 8,
+      "key": "google_flow_animations",
+      "name": "Google Flow animations",
+      "owner": "User",
+      "status": "NOT_STARTED",
+      "evidence": [],
+      "notes": "",
+      "updated_at": null
+    },
+    {
+      "number": 9,
+      "key": "remotion_graphics",
+      "name": "Remotion graphics",
+      "owner": "Claude Code",
+      "status": "NOT_STARTED",
+      "evidence": [],
+      "notes": "",
+      "updated_at": null
+    },
+    {
+      "number": 10,
+      "key": "sound_design",
+      "name": "Sound design",
+      "owner": "Claude Code",
+      "status": "NOT_STARTED",
+      "evidence": [],
+      "notes": "",
+      "updated_at": null
+    },
+    {
+      "number": 11,
+      "key": "editing",
+      "name": "Editing",
+      "owner": "Claude Code and User",
+      "status": "NOT_STARTED",
+      "evidence": [],
+      "notes": "",
+      "updated_at": null
+    },
+    {
+      "number": 12,
+      "key": "final_export",
+      "name": "Final export",
+      "owner": "Claude Code and User",
+      "status": "NOT_STARTED",
+      "evidence": [],
+      "notes": "",
+      "updated_at": null
+    }
+  ]
+}

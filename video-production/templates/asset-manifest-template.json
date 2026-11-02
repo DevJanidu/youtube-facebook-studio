@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "episode": {
+    "id": "",
+    "title": ""
+  },
+  "narration": {
+    "script": null,
+    "audio": null,
+    "transcript": null,
+    "subtitles": null,
+    "measured_duration_seconds": null
+  },
+  "scenes": [],
+  "scene_entry_format": {
+    "scene_id": "S001",
+    "image": {
+      "required": null,
+      "prompt": null,
+      "approved": null,
+      "fit": "cover"
+    },
+    "animation": {
+      "required": null,
+      "prompt": null,
+      "approved": null,
+      "fit": "cover",
+      "trim_start_seconds": null,
+      "trim_end_seconds": null,
+      "end_behavior": null,
+      "audio_approved": false
+    },
+    "remotion": {
+      "required": null,
+      "source": null,
+      "render": null,
+      "graphics": []
+    },
+    "sound": {
+      "effects": [],
+      "music": null
+    },
+    "status": "NOT_STARTED",
+    "transition_out": null
+  }
+}
