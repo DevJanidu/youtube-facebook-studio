@@ -29,6 +29,24 @@
 - Never treat unfinished assets as completed.
 - Start each stage only when the conditions below say so. Finishing one stage does not start the next.
 
+## Production modes
+
+One engine makes two kinds of video. The workflow below is the same for both, and the stages keep their meaning.
+
+| Mode | What it is | Create it |
+| --- | --- | --- |
+| **Documentary** (the default) | A full-length video, usually 16:9. One narration, one storyboard, one final video | `python tools\create_episode.py --id 001 --title "Topic"` |
+| **Vertical series** | One story in 9:16, with one narration and one storyboard, cut into numbered parts of about a minute, each exported on its own | `python tools\create_episode.py --id 002 --title "Topic" --mode series` |
+
+A series has these differences, and no others:
+
+- The storyboard covers the whole story, designed for a vertical frame.
+- The subtitles (SRT) are required, because they show where sentences end.
+- After the storyboard, the part boundaries are planned with `series propose`, and are approved with the storyboard.
+- In editing, each part is reviewed, approved and exported on its own, as well as the complete story.
+
+**DONE keeps its meaning in both modes.** It only verifies your finished script, narration, transcript and subtitles. It never creates a storyboard, plans parts, or starts production. See `shared/remotion-templates/SERIES.md` for the full guide to series.
+
 ## Stage 1: Add the completed files (user)
 
 Create the episode from the `video-production` folder:
@@ -141,7 +159,7 @@ The user generates still images from the approved storyboard. Claude Code does n
 
 | Item | Location |
 | --- | --- |
-| Prompts | `05_google_flow_images/prompts/S001.md` |
+| Prompts (JSON, only when the user requests; see `shared/prompts/FLOW_JSON_GENERATION_STANDARD.md`) | `05_google_flow_images/prompts/GOOGLE_FLOW_IMAGES_B01.json` and `GOOGLE_FLOW_IMAGES_ALL.json` |
 | Generated images | `05_google_flow_images/generated/S001_v1.png` |
 | Approved images | `05_google_flow_images/approved/S001.png` |
 
@@ -151,7 +169,7 @@ Selected approved still images are animated in Google Flow. Use this for charact
 
 | Item | Location |
 | --- | --- |
-| Prompts | `06_google_flow_animations/prompts/S001.md` |
+| Prompts (JSON, only when the user requests; same standard) | `06_google_flow_animations/prompts/GOOGLE_FLOW_ANIMATIONS_B01.json` and `GOOGLE_FLOW_ANIMATIONS_ALL.json` |
 | Generated clips | `06_google_flow_animations/generated/S001_v1.mp4` |
 | Approved clips | `06_google_flow_animations/approved/S001.mp4` |
 
@@ -188,6 +206,8 @@ Claude Code helps to:
 - Prepare the final video
 
 Edit projects go in `09_editing/projects/`, review previews in `09_editing/previews/` and check results in `09_editing/qa/`.
+
+For a series, add `--part <ID>` to review, approve and export one part, or `--all-parts`. Nothing is exported by default in a series, and `export --all-parts` renders nothing unless every part is approved. See `shared/remotion-templates/SERIES.md`.
 
 Editing uses the Master Episode Assembler. See `shared/remotion-templates/ASSEMBLER.md` for its commands and file formats. No other video editor is needed.
 

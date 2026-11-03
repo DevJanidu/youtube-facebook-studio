@@ -12,6 +12,9 @@
 /video-production/*
 !/video-production/README.md
 !/video-production/WORKFLOW.md
+!/video-production/shared/
+/video-production/shared/*
+!/video-production/shared/prompts/
 !/video-production/templates/
 !/video-production/tools/
 __pycache__/

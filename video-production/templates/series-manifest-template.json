@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "series": {
+    "id": "",
+    "title": "",
+    "description": "",
+    "expected_parts": null
+  },
+  "settings": {
+    "target_part_seconds": null,
+    "tolerance": 0.25,
+    "min_part_seconds": null,
+    "max_part_seconds": null,
+    "min_gap_seconds": 0.25,
+    "boundary_tail_seconds": 0.5,
+    "boundary_lead_max_seconds": 1.0,
+    "hint_window_seconds": 6,
+    "edge_fade_seconds": 0.12,
+    "file_name_pattern": "{series}_part-{number}-of-{total}"
+  },
+  "label": {
+    "enabled": true,
+    "format": "Part {number:02} / {total:02}",
+    "position": "top-right",
+    "size": 40,
+    "seconds": null,
+    "variant": "pill",
+    "color": null,
+    "text_color": null,
+    "show_in_master": false
+  },
+  "boundary_hints": [],
+  "narration_sha256": null,
+  "parts": [],
+  "publishing": {
+    "title_pattern": "{series_title} - Part {number} of {total}: {part_title}",
+    "series_overview": "",
+    "description_footer": true,
+    "schedule": {
+      "start": null,
+      "interval_hours": 24
+    }
+  }
+}

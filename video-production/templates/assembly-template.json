@@ -1,5 +1,11 @@
 {
   "schema_version": 1,
+  "production_mode": "documentary",
+  "master_aspect_ratio": "16:9",
+  "target_platforms": [
+    "youtube"
+  ],
+  "target_duration": null,
   "fps": 30,
   "width": 1920,
   "height": 1080,
@@ -35,8 +41,14 @@
     "noise_db": -35,
     "min_silence_seconds": 0.3
   },
-  "review": {
-    "scale": 0.5,
-    "crf": 28
+  "output_profiles": {
+    "review": {
+      "scale": 0.5,
+      "crf": 28
+    },
+    "final": {
+      "crf": 16,
+      "audio_bitrate_kbps": 320
+    }
   }
 }

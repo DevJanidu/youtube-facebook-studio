@@ -1,0 +1,42 @@
+{
+  "_comment": "One entry of the parts list in series_manifest.json. The first parts end at a pause in the narration. The last part leaves end as null, because it ends with the story. Times, scenes, narration words, assets and sound are worked out from the storyboard, so they are not written here.",
+  "id": "P01",
+  "title": "",
+  "end": "00:00:58.400",
+  "locked": false,
+  "source": "proposed",
+  "opening_context": "",
+  "ending_reveal": "",
+  "description": "",
+  "overlays": [
+    {
+      "_comment": "Optional graphics for this part only, from the motion graphics library. 'at' is start or end of the part.",
+      "component": "TitleCard",
+      "props": {
+        "title": "",
+        "subtitle": ""
+      },
+      "at": "start",
+      "offset_seconds": 0,
+      "duration_seconds": 2,
+      "show_in_master": false
+    }
+  ],
+  "publishing": {
+    "status": "draft",
+    "scheduled_at": null,
+    "published_url": null,
+    "notes": "",
+    "platforms": {
+      "facebook_reels": {
+        "description": "",
+        "hashtags": []
+      },
+      "youtube_shorts": {
+        "title": "",
+        "description": "",
+        "tags": []
+      }
+    }
+  }
+}

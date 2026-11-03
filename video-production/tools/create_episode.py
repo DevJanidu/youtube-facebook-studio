@@ -3,6 +3,10 @@
 
 Usage:
     python tools/create_episode.py --id 001 --title "Example Topic"
+    python tools/create_episode.py --id 002 --title "Example Series" --mode series
+
+A documentary is the default: a 16:9 video with one narration and one final video. A series is a
+vertical 9:16 story that is cut into numbered parts. Both use the same folders and the same engine.
 
 Uses only the Python standard library. Refuses to touch an existing episode:
 an episode ID can be used once, whatever its title.
@@ -87,7 +91,20 @@ def write_json_template(template_name, destination, update):
     destination.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
-def populate(folder, number, title, folder_name):
+SERIES_PLATFORMS = ["facebook_reels", "youtube_shorts"]
+
+
+def series_assembly(data):
+    """Settings for a vertical series. Everything else stays as in the documentary template."""
+    data["production_mode"] = "series"
+    data["master_aspect_ratio"] = "9:16"
+    data["target_platforms"] = list(SERIES_PLATFORMS)
+    data["width"] = 1080
+    data["height"] = 1920
+    data["series_part_target_seconds"] = 60
+
+
+def populate(folder, number, title, folder_name, mode="documentary"):
     for subfolder in SUBFOLDERS:
         (folder / subfolder).mkdir(parents=True)
 
@@ -118,10 +135,20 @@ def populate(folder, number, title, folder_name):
         "production-status-template.json", folder / "production_status.json", fill_status
     )
 
-    shutil.copyfile(
-        TEMPLATES / "assembly-template.json",
-        folder / "09_editing" / "projects" / "assembly.json",
+    assembly = json.loads((TEMPLATES / "assembly-template.json").read_text(encoding="utf-8"))
+    if mode == "series":
+        series_assembly(assembly)
+    (folder / "09_editing" / "projects" / "assembly.json").write_text(
+        json.dumps(assembly, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
+
+    if mode == "series":
+        manifest = json.loads((TEMPLATES / "series-manifest-template.json").read_text(encoding="utf-8"))
+        manifest["series"]["id"] = safe_slug(title)
+        manifest["series"]["title"] = title
+        (folder / "04_storyboard" / "series_manifest.json").write_text(
+            json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+        )
     shutil.copyfile(
         TEMPLATES / "sound-cues-template.json",
         folder / "08_sound_design" / "cues" / "sound_cues.json",
@@ -136,6 +163,12 @@ def main():
     parser = argparse.ArgumentParser(description="Create a new video episode folder.")
     parser.add_argument("--id", required=True, type=episode_id, help="episode number, such as 001")
     parser.add_argument("--title", required=True, type=episode_title, help="episode title")
+    parser.add_argument(
+        "--mode",
+        choices=("documentary", "series"),
+        default="documentary",
+        help="documentary (default, 16:9, one video) or series (9:16, numbered parts)",
+    )
     args = parser.parse_args()
 
     existing = find_existing(args.id)
@@ -152,7 +185,7 @@ def main():
     # a half-made episode. The rename also fails if the target already exists.
     staging = Path(tempfile.mkdtemp(prefix=".creating-", dir=EPISODES))
     try:
-        populate(staging, args.id, args.title, folder_name)
+        populate(staging, args.id, args.title, folder_name, args.mode)
         staging.rename(target)
     except (OSError, ValueError, KeyError) as error:
         print(f"ERROR: could not create the episode: {error}", file=sys.stderr)

@@ -1,0 +1,20 @@
+{
+  "_comment": "The record written next to each exported part, in 10_final_export/metadata. It is generated at export. This shows its shape.",
+  "schema_version": 1,
+  "series": {"id": "", "title": ""},
+  "part": {"id": "P01", "number": 1, "total": 15, "title": "", "description": "", "opening_context": "", "ending_reveal": ""},
+  "master_timeline": {"start": "00:00:00.000", "end": "00:00:58.400", "start_frame": 0, "end_frame": 1752, "fps": 30},
+  "local": {"duration_seconds": 58.4, "frames": 1752},
+  "narration": {"first_words": "", "last_words": "", "word_count": 0, "cue_count": 0, "first_cue": 1, "last_cue": 1, "subtitle_file": "part-relative SRT written beside this file"},
+  "scenes": {"ids": [], "shared_with_neighbours": []},
+  "required_assets": {"images": [], "clips": [], "graphics": []},
+  "remotion_compositions": [],
+  "sound": [],
+  "output": {"file": "", "profile": "final", "width": 1080, "height": 1920, "size_bytes": 0, "duration_seconds": 0, "frames": 0, "loudness_lufs": 0, "true_peak_db": 0},
+  "qa": {"passed": true, "checks": []},
+  "approval": {"fingerprint": "", "approved_at": ""},
+  "publishing": {"status": "draft", "scheduled_at": null},
+  "production": {"mode": "series", "aspect": "9:16", "platforms": []},
+  "exported_at": "",
+  "fingerprint": ""
+}

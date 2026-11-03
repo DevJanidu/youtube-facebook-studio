@@ -14,6 +14,8 @@ python tools/create_episode.py --id 001 --title "Example Topic"
 
 This creates `episodes/001_example-topic/` with all subfolders and blank templates. Each episode ID can be used only once, so an existing episode cannot be overwritten.
 
+For a vertical series, add `--mode series`. It sets a 9:16 frame and adds `series_manifest.json`. The documentary is the default. See `shared/remotion-templates/SERIES.md`.
+
 ## Add your completed files
 
 | File | Folder |
